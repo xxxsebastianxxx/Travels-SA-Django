@@ -23,7 +23,7 @@
                   <td>
 
                         <select type="text" name="inicio" maxlength="80" required id="id_inicio">
-                              {% for ciudades in ciudad  %}
+                              {% for ciudades in ciudad %}
                               <option value="{{ciudades.id}}">{{ciudades.ciudad}}</option>
                               {% endfor%}
                         </select>
@@ -37,7 +37,7 @@
                   <td>
 
                         <select type="text" name="destino" maxlength="80" required id="id_destino">
-                              {% for ciudades in ciudad  %}
+                              {% for ciudades in ciudad %}
                               <option value="{{ciudades.id}}">{{ciudades.ciudad}}</option>
                               {% endfor%}
                         </select>
@@ -50,8 +50,14 @@
                   <th><label for="id_tarifa">Tarifa:</label></th>
                   <td>
 
-                        <input type="number" name="tarifa" min="-9223372036854775808" max="9223372036854775807" required
-                              id="id_tarifa" value="{{form.tarifa.value}}">
+                  
+
+                        <select type="number" name="tarifa" min="-9223372036854775808" max="9223372036854775807"
+                              required id="id_tarifa">
+                              {% for tarifas in tarifas %}
+                              <option value="{{tarifas.id}}">{{tarifas.precios}}</option>
+                              {% endfor%}
+                        </select>
 
 
                   </td>
@@ -61,7 +67,12 @@
                   <th><label for="id_horario">Horario:</label></th>
                   <td>
 
-                        <input type="text" name="horario" maxlength="80" required id="id_horario" value="{{form.horario.value}}">
+                        <select type="text" name="horario" maxlength="80" required id="id_horario"
+                              value="{{form.horario.value}}">
+                              {% for horario in horario  %}
+                              <option value="{{horario.id}}">{{horario.hora_salida}}</option>
+                              {% endfor%}
+                        </select>
 
 
 
@@ -75,16 +86,24 @@
       </form>
 
       <script>
-        function optioncitys() {
-            document.getElementById('id_inicio').value = '{{form.inicio.value}}';
-        }
-        function optioncitys2() {
-            document.getElementById('id_destino').value = '{{form.destino.value}}';
-        }
-       
-        setTimeout(optioncitys(), 4000)
-        setTimeout(optioncitys2(), 4000)
-    </script>
+            function optioncitys() {
+                  document.getElementById('id_inicio').value = '{{form.inicio.value}}';
+            }
+            function optioncitys2() {
+                  document.getElementById('id_destino').value = '{{form.destino.value}}';
+            }
+            function tarifas() {
+                  document.getElementById('id_tarifa').value = '{{form.tarifa.value}}';
+            }
+            function horario() {
+                  document.getElementById('id_horario').value = '{{form.horario.value}}';
+            }
+
+            setTimeout(optioncitys(), 4000)
+            setTimeout(optioncitys2(), 4000)
+            setTimeout(tarifas(), 4000)
+            setTimeout(horario(), 4000)
+      </script>
 </body>
 
 </html>

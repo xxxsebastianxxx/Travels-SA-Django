@@ -23,3 +23,18 @@ class Ciudadesd(models.Model):
     class Meta:
         managed = False
         db_table = 'ciudadesd'
+
+class Tarifas(models.Model):
+    precios = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'tarifas'
+
+
+class Horario(models.Model):
+    hora_salida = models.CharField(max_length=11)
+
+    class Meta:
+        managed = False
+        db_table = 'horario'

@@ -50,8 +50,13 @@
                   <th><label for="id_tarifa">Tarifa:</label></th>
                   <td>
 
-                        <input type="number" name="tarifa" min="-9223372036854775808" max="9223372036854775807" required
+                        <select type="number" name="tarifa" min="-9223372036854775808" max="9223372036854775807" required
                               id="id_tarifa">
+                              {% for tarifas in tarifas  %}
+                              <option value="{{tarifas.id}}">{{tarifas.precios}}</option>
+                              {% endfor%}
+                        </select>
+                        
 
 
                   </td>
@@ -61,7 +66,11 @@
                   <th><label for="id_horario">Horario:</label></th>
                   <td>
 
-                        <input type="text" name="horario" maxlength="80" required id="id_horario">
+                        <select type="text" name="horario" maxlength="80" required id="id_horario">
+                              {% for horario in horario  %}
+                              <option value="{{horario.id}}">{{horario.hora_salida}}</option>
+                              {% endfor%}
+                        </select>
 
 
 
