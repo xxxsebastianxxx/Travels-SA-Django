@@ -1,0 +1,78 @@
+
+.contactobody{
+    background-image:
+    linear-gradient(to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.4)),
+    url(../imgs/fondocontacto.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.nameforpagemenu{
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(255, 255, 255) ;
+    font-size: 220%;
+    text-align: center;
+    margin-top: 1%;
+    animation-name: title;
+    animation-duration: 2s;
+}
+@keyframes title {
+    from {
+        margin-left: 100%;
+        width: 300%
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+}
+
+.divcontacto{
+    width: 50%;
+    position: relative;
+    margin-left: 27% ;
+    margin-top: 8%;
+}
+
+.txtcontacto{
+    text-align: justify;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    animation-name: txtcontacto;
+    animation-duration: 2s;
+}
+@keyframes txtcontacto {
+
+    0%{
+        transform:scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}
+
+
+
+.imgwhatsapp{
+    width: 17% ;
+    height: 17%;
+    margin-left: 42%;
+    border-radius: 70%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	
+}
+
+.correocontacto{
+    text-decoration: none;
+    color: white;
+}
+.correocontacto:hover{
+    color: #333333;
+}

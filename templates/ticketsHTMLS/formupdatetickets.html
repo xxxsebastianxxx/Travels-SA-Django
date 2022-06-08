@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="{% static 'imgs/bus.ico' %}" type="image/x-icon">
+      <title>tickets</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'css/edittickets.css' %}">
+</head>
+
+<body>
+      <form class="form" method="post">
+            <h4>tickets</h4>
+            <input type="hidden" name="csrfmiddlewaretoken"
+                  value="RwfJnVOmWXwhrUhcHEFTrncDhknI4p8OUoxmgZOBeqgYEhqsqyn9aKg6P276HV0W">
+            <tr>
+                  <th><label for="id_inicio">Inicio:</label></th>
+                  <td>
+
+                        <select type="text" name="inicio" maxlength="80" required id="id_inicio">
+                              {% for ciudades in ciudad  %}
+                              <option value="{{ciudades.id}}">{{ciudades.ciudad}}</option>
+                              {% endfor%}
+                        </select>
+
+
+                  </td>
+            </tr>
+
+            <tr>
+                  <th><label for="id_destino">Destino:</label></th>
+                  <td>
+
+                        <select type="text" name="destino" maxlength="80" required id="id_destino">
+                              {% for ciudades in ciudad  %}
+                              <option value="{{ciudades.id}}">{{ciudades.ciudad}}</option>
+                              {% endfor%}
+                        </select>
+
+
+                  </td>
+            </tr>
+
+            <tr>
+                  <th><label for="id_tarifa">Tarifa:</label></th>
+                  <td>
+
+                        <input type="number" name="tarifa" min="-9223372036854775808" max="9223372036854775807" required
+                              id="id_tarifa" value="{{form.tarifa.value}}">
+
+
+                  </td>
+            </tr>
+
+            <tr>
+                  <th><label for="id_horario">Horario:</label></th>
+                  <td>
+
+                        <input type="text" name="horario" maxlength="80" required id="id_horario" value="{{form.horario.value}}">
+
+
+
+
+                  </td>
+            </tr>
+            <br>
+            <button type="submit" class="btn btn-success btn">ingresar</button>
+            <br>
+            <a href="/tickets" class="btn btn-secondary btn">atras</a>
+      </form>
+
+      <script>
+        function optioncitys() {
+            document.getElementById('id_inicio').value = '{{form.inicio.value}}';
+        }
+        function optioncitys2() {
+            document.getElementById('id_destino').value = '{{form.destino.value}}';
+        }
+       
+        setTimeout(optioncitys(), 4000)
+        setTimeout(optioncitys2(), 4000)
+    </script>
+</body>
+
+</html>

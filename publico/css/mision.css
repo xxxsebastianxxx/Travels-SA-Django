@@ -1,0 +1,76 @@
+.bodymision {
+    background-image:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.4)),
+        url(../imgs/fondomision.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.tituloquiensomos{
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(255, 255, 255) ;
+    font-size: 220%;
+    margin-left: 40%;
+    margin-top: 1%;
+    position: fixed;
+    background-color: transparent; 
+    animation-name: titulomision;
+    animation-duration: 2s;
+}
+@keyframes titulomision {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}
+
+.contenedorconocenos{
+    width: 90%;
+    padding: 9%;
+
+}
+.txtquiensomos{
+    color:#fff;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    animation-name: titulomision;
+    animation-duration: 2s;
+}
+.imgquiensomos{
+   width: 50%;
+   margin-left: 35%;
+   margin-top: 2%;
+   box-shadow: 10px 5px 5px rgb(63, 62, 62) ;
+   animation-name: imgmision;
+   animation-duration: 2s;
+}
+
+@keyframes imgmision {
+    from {
+        margin-left: 100%;
+        width: 50%
+      }
+    
+      to {
+        margin-left: 35%;
+        width: 50%;
+      }
+
+}
+
+
+.contenedorconocenos2{
+    width: 90%;
+    padding: 9%;
+}
+.hr{
+    color: aliceblue;
+    height: 2px;
+}

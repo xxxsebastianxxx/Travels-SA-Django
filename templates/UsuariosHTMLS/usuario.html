@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=}, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'imgs/bus.ico' %}" type="image/x-icon">
+    <title>usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/tableUSU.css' %}">
+</head>
+<body class="body">
+  {% block cuerpo%}
+    <h2 >usuarios</h2>
+      <table class="table table-striped tableuso">
+         <thead>
+          <tr>
+            
+            <th scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">apellido</th>
+            <th scope="col">telefono</th>
+            <th scope="col">correo</th>
+            <th scope="col">
+              <a style="float: left;" class="btn btn-outline-info" href="/formregistro">registar</a>
+              <a class="btn btn-outline-warning" href="/menu">atras</a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in Usuarios %}
+          <tr>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellido}}</td>
+            <td>{{usuario.telefono}}</td>
+            <td>{{usuario.correo}}</td>
+            <td>
+              <a  class="btn btn-success btn" href="editarUsuario/{{ usuario.id }}">editar</a>
+               /
+              <a onclick="return confirm('esta seguro que desea borrar el usuario');"  class="btn btn-danger btn" href="borrarUsuario/{{ usuario.id }}"> borrar</a>  
+              </td>
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      {% endblock cuerpo%}
+  </body>
+</html>
