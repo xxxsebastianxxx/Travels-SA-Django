@@ -18,6 +18,21 @@
             <h4>tickets</h4>
             <input type="hidden" name="csrfmiddlewaretoken"
                   value="RwfJnVOmWXwhrUhcHEFTrncDhknI4p8OUoxmgZOBeqgYEhqsqyn9aKg6P276HV0W">
+
+
+                  <tr>
+                        <th><label for="id_nombre">Nombre del Usuario:</label></th>
+                        <td>
+      
+                              <select type="text" name="nombre" maxlength="80" required id="id_nombre">
+                                    {% for usuario in usuario  %}
+                                    <option value="{{usuario.id}}">{{usuario.nombre}}</option>
+                                    {% endfor%}
+                              </select>
+      
+      
+                        </td>
+                  </tr>      
             <tr>
                   <th><label for="id_inicio">Inicio:</label></th>
                   <td>
@@ -77,6 +92,19 @@
 
                   </td>
             </tr>
+            <tr>
+                  <th><label for="id_bus">selecciona tu bus:</label></th>
+                  <td>
+
+                        <select type="text" name="bus" maxlength="80" required id="id_bus">
+                              {% for vehiculos in vehiculo  %}
+                              <option value="{{vehiculos.id}}">{{vehiculos.marca}}</option>
+                              {% endfor%}
+                        </select>
+                  </td>
+            </tr>
+            
+           
             <br>
             <button type="submit" class="btn btn-success btn">ingresar</button>
             <br>

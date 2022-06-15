@@ -15,40 +15,59 @@
       
         <h2 class=" titulo">tus tickets</h2>
         
-          <table class="table table-striped tableticketuso" >
+          <table style="width: 88%; margin-left: 7%;" class="table table-striped " >
              <thead>
               <tr>
-                <th scope="col">id</th>
+                
+                <th scope="col">imagen</th>
+                <th scope="col">Nombre </th>
                 <th scope="col">salida</th>
                 <th scope="col">destino</th>
                 <th scope="col">horario</th>
+                <th scope="col">marca</th>
+                <th scope="col">placa</th>
                 <th scope="col">tarifa</th>
                 <th scope="col-1">
-                  <a class="btn btn-outline-info" href="/formrtickets">registar</a>
-                  <a class="btn btn-outline-warning" href="/menu">atras</a>
+                  <a class="btn btn-outline-info" href="/formrtickets"style="width: 80%; ">registar</a>
+                  
+                  <a class="btn btn-outline-warning" href="/graficoTickets" style="width: 80%; ">grafico</a>
                 </th>
               </tr>
             </thead>
             <tbody>
               {% for ticket in tickets %}
               <tr>
-                <td>{{ticket.id}}</td>
+                
+                <td><img style="width: 70px; border-radius: 10px;" src="{% static 'imgs/ticimg.jpg' %}" alt="aca la imagen"></td>
+                <td>{{ticket.nombre}}</td>
                 <td>{{ticket.ciudad}}</td>
                 <td>{{ticket.ciudadD}}</td>
                 <td>{{ticket.hora_salida}}</td>
+                <td>{{ticket.marca}}</td>
+                <td>{{ticket.placa}}</td>
                 <td>{{ticket.precios}}</td>
                 <td>
-                  <a  class="btn btn-success btn" href="editarticket/{{ ticket.id }}">editar</a>
+                  
+                  <a  class="btn btn-success btn" href="editarticket/{{ ticket.id }}" style="width: 80%; ">editar</a>
 
-                  <a onclick="return confirm('esta seguro que desea borrar el ticket');"  class="btn btn-danger btn" href="borrarticket/{{ ticket.id }}"> borrar</a>  
+                  <a onclick="return confirm('esta seguro que desea borrar el ticket del usuario {{ticket.nombre}}');"  style="width: 80%; " class="btn btn-danger btn" href="borrarticket/{{ ticket.id }}"> borrar</a>  
                   </td>
               </tr>
              {% endfor %}
              
             </tbody>
           </table>
-
-          
+          <a class="btn btn-outline-warning" href="/menu" style="width: 8%; margin-left: 4%;">atras</a>
+          <!-- <div class="card" style="width: 18rem;">
+            {% for ticket in tickets %}
+            <img src="{% static 'imgs/ticimg.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ticket.ciudad}}</h5>
+              <p class="card-text">{{ticket.ciudadD}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            {% endfor %}
+          </div> -->
       
         <script
            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">

@@ -3,6 +3,9 @@ from ast import Delete
 from django.shortcuts import redirect, render
 from .models import Usuario
 from .forms import usuarioForm
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 # Create your views here.
 def inicio(request):
     usuario = Usuario.objects.all()
@@ -50,3 +53,17 @@ def borrarUsuario(request, id):
     usuario.delete()
     return redirect('inicioU')
 
+
+
+def graficoUsuarios(request):
+     usuario = Usuario.objects.values()
+     valores = pd.DataFrame(usuario)
+     print(valores)
+     y = valores['id']
+     x = valores['nombre']
+     print(y , x)
+     plt.title("nombre y su id")
+     plt.suptitle("grafico de los usuario")
+     plt.bar(x , y)
+     plt.show()
+     return redirect('inicioU')     

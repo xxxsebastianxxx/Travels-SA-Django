@@ -1,11 +1,12 @@
 from unicodedata import name
 from django.urls import path
-from Aplicaciones.ModuloUsuario.views import inicio,formregistro, editarUsuario,borrarUsuario
+from Aplicaciones.ModuloUsuario.views import inicio,formregistro, editarUsuario,borrarUsuario, graficoUsuarios
 
 
 urlpatterns = [
     path('usuario', inicio, name="inicioU"),
     path('formregistro', formregistro, name="formregistro"),
     path('editarUsuario/<int:id>', editarUsuario ,name="editarUsuario"),
-    path('borrarUsuario/<int:id>', borrarUsuario  ,name="borrarUsuario")
+    path('borrarUsuario/<int:id>', borrarUsuario  ,name="borrarUsuario"),
+    path('graficoUsuarios', graficoUsuarios ,name="graficoUsuarios"),
 ]

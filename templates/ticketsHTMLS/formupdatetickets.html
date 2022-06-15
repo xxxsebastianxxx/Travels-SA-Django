@@ -18,8 +18,23 @@
             <h4>tickets</h4>
             <input type="hidden" name="csrfmiddlewaretoken"
                   value="RwfJnVOmWXwhrUhcHEFTrncDhknI4p8OUoxmgZOBeqgYEhqsqyn9aKg6P276HV0W">
-            <tr>
-                  <th><label for="id_inicio">Inicio:</label></th>
+                  <tr>
+                        <th><label for="id_nombre">Nombre del Usuario:</label></th>
+                        <td>
+      
+                              <select type="text" name="nombre" maxlength="80" required id="id_nombre">
+                                    {% for usuario in usuario  %}
+                                    <option value="{{usuario.id}}">{{usuario.nombre}}</option>
+                                    {% endfor%}
+                              </select>
+      
+      
+                        </td>
+                  </tr> 
+            
+            
+                  <tr>
+                  <th><label for="id_inicio">cuidad de salida:</label></th>
                   <td>
 
                         <select type="text" name="inicio" maxlength="80" required id="id_inicio">
@@ -33,7 +48,7 @@
             </tr>
 
             <tr>
-                  <th><label for="id_destino">Destino:</label></th>
+                  <th><label for="id_destino">cuidad de Destino:</label></th>
                   <td>
 
                         <select type="text" name="destino" maxlength="80" required id="id_destino">
@@ -79,6 +94,17 @@
 
                   </td>
             </tr>
+            <tr>
+                  <th><label for="id_bus">selecciona tu bus:</label></th>
+                  <td>
+
+                        <select type="text" name="bus" maxlength="80" required id="id_bus">
+                              {% for vehiculos in vehiculo  %}
+                              <option value="{{vehiculos.id}}">{{vehiculos.marca}}</option>
+                              {% endfor%}
+                        </select>
+                  </td>
+            </tr>
             <br>
             <button type="submit" class="btn btn-success btn">ingresar</button>
             <br>
@@ -86,6 +112,9 @@
       </form>
 
       <script>
+             function nombre() {
+                  document.getElementById('id_nombre').value = '{{form.nombre.value}}';
+            }
             function optioncitys() {
                   document.getElementById('id_inicio').value = '{{form.inicio.value}}';
             }
@@ -97,6 +126,9 @@
             }
             function horario() {
                   document.getElementById('id_horario').value = '{{form.horario.value}}';
+            }
+            function bus() {
+                  document.getElementById('id_bus').value = '{{form.bus.value}}';
             }
 
             setTimeout(optioncitys(), 4000)
